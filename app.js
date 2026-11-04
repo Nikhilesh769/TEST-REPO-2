@@ -3,10 +3,13 @@ const cors = require('cors');
 require('dotenv').config();
 
 const logger = require('./config/logger');
+const { report } = require('./utils/statusReporter');
 const cartRoutes = require('./routes/cartRoutes');
 const authRoutes = require('./routes/authRoutes');
 
 const app = express();
+
+report('app', 'ok');
 
 app.use(cors());
 app.use(express.json());
